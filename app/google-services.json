@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "719063477881",
+    "project_id": "xssfinal",
+    "storage_bucket": "xssfinal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719063477881:android:2a6c1edc42cbfb47506ea8",
+        "android_client_info": {
+          "package_name": "com.example.xssattackingwebsitedetection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "719063477881-i4haok664msetjb6r12r3rqfj69542a1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYxx1vSJIFXztXZuapEW3e2Fv3VyxF7lA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "719063477881-i4haok664msetjb6r12r3rqfj69542a1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

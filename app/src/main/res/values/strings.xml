@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Xss Attacking Website Detection</string>
+    <string name="email">Email</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_password_error">Error While Reset Your Password</string>
+    <string name="reset_password_sent">Reset Password Link Sent Successfully, Check Your Email</string>
+    <string name="email_hint">Email</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="logo_description">XSS APP</string>
+    <string name="empty_email_error">"Kindly Give Your Email "</string>
 </resources>
