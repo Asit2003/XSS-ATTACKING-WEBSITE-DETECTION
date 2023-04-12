@@ -12,6 +12,9 @@
         android:theme="@style/Theme.XssAttackingWebsiteDetection"
         tools:targetApi="31">
         <activity
+            android:name=".ModelActivity"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
@@ -28,9 +31,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

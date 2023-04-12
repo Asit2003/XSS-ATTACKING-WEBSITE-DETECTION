@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    android:background="@drawable/back6">
+
+    <TextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" XSS Detection "
+        android:textSize="32sp"
+        android:textColor="#1E88E5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"/>
+
+    <EditText
+        android:id="@+id/url_input"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_text"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/et_style"
+        android:hint="  Enter a URL"
+        android:padding="16dp"
+        android:textColor="#212121"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/predict_button"
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/url_input"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:background="@drawable/round_back_primary"
+
+        android:gravity="center"
+
+        android:padding="16dp"
+        android:text="Predict"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/result_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  Result:  "
+        android:background="@drawable/round_back_dark_blue5_15"
+        android:textSize="24sp"
+        android:textColor="#212121"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/predict_button"
+        android:layout_marginTop="48dp"/>
+
+    <TextView
+        android:id="@+id/main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="  Back to Home Page  "
+        android:textSize="24sp"
+        android:textColor="#212121"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round_back_dark_blue5_15"
+        android:layout_below="@id/result_text"
+        android:layout_marginTop="88dp"/>
+
+</RelativeLayout>
