@@ -1,100 +1,111 @@
 package com.example.xssattackingwebsitedetection;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Button mlModelButton;
-    private Button settingsButton;
-    private Button profileButton;
-    private Button historyButton;
-    private Button logoutButton;
-
-    private GoogleSignInClient googleSignInClient;
-    private FirebaseAuth firebaseAuth;
-
+    FirebaseAuth auth;
+    Button logoutButton, mlModelButton, profileButton, settingsButton, historyButton,logout,profile,home,settings;
+    TextView textView;
+    FirebaseUser user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Set up Google Sign In options
-        GoogleSignInOptions googleSignInOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        googleSignInClient = GoogleSignIn.getClient(this, googleSignInOptions);
-
-        // Set up Firebase Auth
-        firebaseAuth = FirebaseAuth.getInstance();
-
-        mlModelButton = findViewById(R.id.model_button);
-        settingsButton = findViewById(R.id.settings_button);
-        profileButton = findViewById(R.id.profile_button);
-        historyButton = findViewById(R.id.history_button);
+        auth = FirebaseAuth.getInstance();
         logoutButton = findViewById(R.id.logout_button);
+        mlModelButton = findViewById(R.id.model_button);
+        profileButton = findViewById(R.id.profile_button);
+        settingsButton = findViewById(R.id.settings_button);
+        historyButton = findViewById(R.id.history_button);
 
-        mlModelButton.setOnClickListener(new View.OnClickListener() {
+        user = auth.getCurrentUser();
+        if(user == null){
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivities(new Intent[]{intent});
+            finish();
+        }
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ModelActivity.class));
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivities(new Intent[]{intent});
+                finish();
             }
         });
 
-        settingsButton.setOnClickListener(new View.OnClickListener() {
+        mlModelButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ModelActivity.class));
+            public void onClick(View view) {
+                // Add code to launch the ML model screen
             }
         });
 
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ModelActivity.class));
+            public void onClick(View view) {
+                // Add code to launch the profile screen
+            }
+        });
+
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Add code to launch the settings screen
             }
         });
 
         historyButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ModelActivity.class));
+            public void onClick(View view) {
+                // Add code to launch the history screen
             }
         });
+    }
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Sign out from Google and Firebase
-                googleSignInClient.signOut();
-                firebaseAuth.signOut();
 
-                // Redirect to the login activity
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.tool_bar,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home:
+                Toast.makeText(this, "Here we go..", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.profile:
+                Toast.makeText(this, "Here is ur profile", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.logout:
+                Toast.makeText(this, "See U again", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
-            }
-        });
-
-        // Check if the user is already signed in
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if (account == null) {
-            // Redirect to the login activity
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
         }
+        return super.onOptionsItemSelected(item);
+
     }
 }
+
