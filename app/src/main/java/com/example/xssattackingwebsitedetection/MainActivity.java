@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Add code to launch the ML model screen
+                Intent intent = new Intent(getApplicationContext(), ModelActivity.class);
+                startActivities(new Intent[]{intent});
+                finish();
             }
         });
 
