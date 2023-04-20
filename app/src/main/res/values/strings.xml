@@ -8,4 +8,10 @@
     <string name="forgot_password">Forgot Password</string>
     <string name="logo_description">XSS APP</string>
     <string name="empty_email_error">"Kindly Give Your Email "</string>
+    <string name="buttonSelectPhoto">Select Photo</string>
+    <string name="buttonTakePhoto">Start Camera</string>
+    <string name="buttonDiagnose">Detect</string>
+    <string name="defaultImage">Default image set now...</string>
+    <string name="descriptionImage">View for displaying image</string>
+    <string name="mname">mName</string>
 </resources>
